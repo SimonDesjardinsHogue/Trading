@@ -1,0 +1,2 @@
+# Trading
+En utilisant PineScript

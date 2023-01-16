@@ -1,0 +1,23 @@
+//This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+//© Sthorad
+//@version=5
+
+indicator(title = "My Exploit Bot Trading Script", shorttitle = "MEBTSup", overlay = true, precision = 3)
+
+// Get MAs
+ema1 = ta.ema(close, 50)
+ema2 = ta.ema(close, 200)
+
+// Get crosses
+maCrossOver = ta.crossover(ema1, ema2)
+maCrossUnder = ta.crossunder(ema1, ema2)
+
+// Draw Mas
+plot(ema1, color=color.green)
+plot(ema2, color=color.red)
+
+// Draw crosses
+bgcolor(maCrossOver ? color.green : na) // Bullish
+bgcolor(maCrossUnder ? color.red : na) // Bearish
+
+
